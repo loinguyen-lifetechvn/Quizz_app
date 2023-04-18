@@ -8,5 +8,4 @@ class QuizzModel extends BaseModel {
   String get title => Methods.getString(data, FieldName.title);
   String get description => Methods.getString(data, FieldName.description);
   String get numberQA => Methods.getString(data, FieldName.numberQA);
-  String get img => Methods.getString(data, FieldName.img);
 }

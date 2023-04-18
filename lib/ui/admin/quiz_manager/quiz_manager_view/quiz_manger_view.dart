@@ -27,7 +27,17 @@ class QuizManagerView extends BaseView<QuizManagerController> {
 
   @override
   AppBar? appBar(BuildContext context) {
-    return LFAppBar(title: 'Quiz manager');
+    return LFAppBar(
+      title: 'Quiz manager',
+      suffix: IconButton(
+          onPressed: () {
+            locator<GetNavigation>().to(RouterPath.user);
+          },
+          icon: Icon(
+            Icons.supervised_user_circle_rounded,
+            color: ColorManager.green,
+          )),
+    );
   }
 
   @override

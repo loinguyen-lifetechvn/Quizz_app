@@ -65,10 +65,10 @@ class _LoginViewState extends State<LoginView> {
           locator<GetNavigation>().to(RouterPath.register);
         }),
         itemIcon(ImageAssets.facebook, onTap: () {
-          locator<GetNavigation>().to(RouterPath.register);
+          controller.facebookSignIn();
         }),
         itemIcon(ImageAssets.google, onTap: () {
-          locator<GetNavigation>().to(RouterPath.register);
+          controller.googleSignIn();
         }),
       ],
     );

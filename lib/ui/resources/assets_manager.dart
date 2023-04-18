@@ -6,5 +6,6 @@ class ImageAssets {
   static const String facebook = "$imagePath/facebook.png";
   static const String google = "$imagePath/google.png";
   static const String newAccount = "$imagePath/new_account.png";
+  static const String user = "$imagePath/user.png";
 }
 

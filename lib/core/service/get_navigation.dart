@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/core/service/auth_service.dart';
 import 'package:quiz_app/ui/base_widget/lf_dialog.dart';
+import 'package:quiz_app/ui/resources/routes_manager.dart';
 
 
 class GetNavigation {
@@ -16,6 +18,13 @@ class GetNavigation {
 
   Future<dynamic> back() async {
     return  navigatorKey.currentState?.pop();
+  }
+
+  Future<dynamic> toLogout() async {
+    AuthenticationService service = AuthenticationService();
+    await service.signOut();
+    return navigatorKey.currentState
+        ?.pushNamedAndRemoveUntil(RouterPath.login, (router)=> false);
   }
 
   Future<void> openDialog(

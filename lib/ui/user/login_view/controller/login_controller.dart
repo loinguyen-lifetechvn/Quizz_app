@@ -19,12 +19,10 @@ class LoginController {
   }
 
   void signIn() async {
-    logSuccess('s');
     if (_email == 'admin@gmail.com' && _password == 'admin') {
       locator<GetNavigation>().replaceTo(RouterPath.quizzManager);
       logSuccess('Đăng nhập với tư cách admin');
     } else {
-      final AuthenticationService auth = AuthenticationService();
       await auth.signIn(_email ?? '', _password ?? '').then((value) {
         if (value == null) {
           locator<GetNavigation>().replaceTo(RouterPath.quizzManager);
@@ -34,5 +32,25 @@ class LoginController {
         }
       });
     }
+  }
+
+  void googleSignIn() async {
+    await auth.googleSignIn().then((value) {
+      if (value == null) {
+        locator<GetNavigation>().replaceTo(RouterPath.quizzManager);
+      } else {
+        locator<GetNavigation>().openDialog(content: value);
+      }
+    });
+  }
+
+  void facebookSignIn() async {
+    await auth.facebookSignIn().then((value) {
+      if (value == null) {
+        locator<GetNavigation>().replaceTo(RouterPath.quizzManager);
+      } else {
+        locator<GetNavigation>().openDialog(content: value);
+      }
+    });
   }
 }
